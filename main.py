@@ -4,9 +4,7 @@ from slack_bolt import App
 import openai as client
 import os
 import time
-import gunicorn
 from dotenv import load_dotenv
-from models import db, UserThread  # Import the database and model
 
 # Load environment variables from a .env file (if you're using one)
 load_dotenv()
@@ -23,35 +21,31 @@ app = App(token=slack_bot_token, signing_secret=slack_signing_secret)
 # Initializes OpenAI client
 client.api_key = openai_api_key
 
-flask_app = Flask(__name__)
-flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yourdatabase.db'  # Configure your database URI
-flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(flask_app)
-
-with flask_app.app_context():
-    db.create_all()  # Create database tables
 # Listen to all messages in direct messages
 import time
 
 # Assuming the rest of your setup code remains the same
-handler = SlackRequestHandler(app)
 
+@app.message()
 def handle_message(message, say):
     user = message['user']
+    print(message['user'])
     user_query = message['text']
     
-    # Query the database for the user's thread_id
-    user_thread = UserThread.query.filter_by(user_id=user).first()
-    
-    if user_thread:
-        thread_id = user_thread.thread_id
+    if user in user_threads:
+        thread_id = user_threads[user]
     else:
-        # Create a new thread and store the thread_id
+        # Criar uma nova thread e armazenar o thread_id
         thread = client.beta.threads.create(messages=[{"role": "user", "content": user_query}])
         thread_id = thread.id
-        new_user_thread = UserThread(user_id=user, thread_id=thread_id)
-        db.session.add(new_user_thread)
-        db.session.commit()
+        user_threads[user] = thread_id
+
+    # Create a thread and add the user's message
+    thread = client.beta.threads.create(
+        messages=[
+            {"role": "user", "content": user_query}
+        ]
+    )
     
     # Initiate a run to process the conversation with the assistant
     run = client.beta.threads.runs.create(
