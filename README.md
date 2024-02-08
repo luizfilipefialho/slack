@@ -83,10 +83,10 @@ Este projeto está pronto para ser executado no Heroku. Após fazer o deploy no 
 
 Para que o Slack envie eventos para o seu bot, aponte o URL de solicitação de eventos do Slack (`Request URL`) para `https://seuapp.herokuapp.com/slack/events`, substituindo `seuapp.herokuapp.com` pelo nome do seu app no Heroku.
 
-Contribuições
+### Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou uma issue.
 
-Licença
+### Licença
 Open source
 
-Lembre-se de ajustar os detalhes conforme necessário, especialmente nas seções de configuração e execução, para garantir que estejam alinhados com as especificidades do seu projeto.
+Originalmente feito por Luiz Fialho
