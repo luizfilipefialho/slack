@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 def send_slack_message(webhook_url, message):
     """
@@ -32,6 +33,6 @@ def send_slack_message(webhook_url, message):
 
 # Example usage
 if __name__ == "__main__":
-    webhook_url = "https://hooks.slack.com/services/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"
+    webhook_url = os.getenv("SLACK_CHANNEL_WEBHOOKURL")
     message = "TESTE"
     send_slack_message(webhook_url, message)
