@@ -35,6 +35,7 @@ Antes de começar, você precisará:
 
 1. Clone este repositório.
 2. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+   
 - SLACK_BOT_TOKEN=seu_token_de_bot_slack_aqui
 - SLACK_SIGNING_SECRET=seu_secreto_de_assinatura_slack_aqui
 - OPENAI_API_KEY=sua_chave_api_openai_aqui
