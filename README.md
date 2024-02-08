@@ -61,7 +61,7 @@ Com essas configurações, seu bot do Slack estará pronto para interagir com os
 1. Crie uma conta ou faça login em [https://openai.com/](https://openai.com/) e acesse a seção API para obter sua chave de API.
 2. Se necessário, crie um Assistente na OpenAI para obter o ID do assistente.
 
-### Configuração do Projeto
+### Configuração do Projeto para execução local ou servidor
 
 1. Clone este repositório.
 2. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
