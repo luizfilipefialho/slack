@@ -1,6 +1,4 @@
-﻿markdown
-Copy code
-# Slack Bot Integrado com OpenAI
+# Slack Bot Integrado com OpenAI Assistants
 
 Este projeto é um bot do Slack que utiliza a API da OpenAI para responder mensagens em DMs (mensagens diretas) com respostas geradas por IA. Ele é construído usando Flask para o backend e a biblioteca `slack_bolt` para a integração com o Slack, além da biblioteca `openai` para a comunicação com a API da OpenAI.
 
