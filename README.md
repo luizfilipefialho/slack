@@ -26,6 +26,38 @@ Antes de começar, você precisará:
 2. Na seção **OAuth & Permissions**, adicione as permissões necessárias e gere um **Bot User OAuth Token**.
 3. Em **Basic Information**, encontre o **Signing Secret**.
 
+### Adicionando Scopes de Bot
+
+Na seção **OAuth & Permissions** do seu app no Slack, você precisará adicionar os seguintes **Scopes de Bot** para garantir que seu bot tenha as permissões necessárias para operar:
+
+- `chat:write`: Permite que o bot envie mensagens.
+- `im:history`: Permite que o bot leia mensagens em DMs.
+- `users:read`: Permite que o bot acesse informações sobre os usuários do Slack.
+
+Esses scopes são essenciais para que o bot possa enviar mensagens, ler mensagens diretas e acessar informações dos usuários para personalizar as respostas.
+
+### Configurando Event Subscriptions
+
+Para que o bot possa receber eventos do Slack, como mensagens enviadas por usuários, você precisará habilitar e configurar **Event Subscriptions**:
+
+1. Navegue até a seção **Event Subscriptions** no painel do seu app Slack.
+2. Ative os eventos, inserindo o URL de solicitação de eventos (Request URL) que aponta para seu servidor, por exemplo, `https://seuapp.herokuapp.com/slack/events`.
+3. Adicione os seguintes **Event Types** na seção **Subscribe to bot events**:
+   - `message.im`: Permite que o bot receba eventos de mensagens enviadas em mensagens diretas.
+
+Certifique-se de que o URL de solicitação de eventos responda ao desafio de verificação do Slack com o valor `challenge` que o Slack envia quando você insere ou atualiza o URL.
+
+### Instalando o App no Workspace do Slack
+
+Após configurar as permissões e os eventos, não se esqueça de instalar o app no seu workspace do Slack. Isso pode ser feito na seção **Install App** no painel do seu app. Após a instalação, você receberá o **Bot User OAuth Token**, que será usado para autenticar as solicitações do seu bot ao Slack.
+
+### Mantendo a Segurança
+
+Lembre-se de nunca compartilhar publicamente seus tokens ou segredos de API. Utilize variáveis de ambiente para gerenciar essas informações sensíveis, tanto no desenvolvimento local quanto no deploy em plataformas como o Heroku.
+
+Com essas configurações, seu bot do Slack estará pronto para interagir com os usuários do seu workspace, utilizando o poder da IA da OpenAI para responder às mensagens.
+
+
 ### Configuração do Ambiente OpenAI
 
 1. Crie uma conta ou faça login em [https://openai.com/](https://openai.com/) e acesse a seção API para obter sua chave de API.
