@@ -66,11 +66,11 @@ Com essas configurações, seu bot do Slack estará pronto para interagir com os
 1. Clone este repositório.
 2. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
    
-- SLACK_BOT_TOKEN=seu_token_de_bot_slack_aqui
-- SLACK_SIGNING_SECRET=seu_secreto_de_assinatura_slack_aqui
-- OPENAI_API_KEY=sua_chave_api_openai_aqui
-- OPENAI_ASSISTANT_ID=id_do_seu_assistente_openai_aqui
-- SLACK_CHANNEL_WEBHOOKURL=(opcional) para utilizar o módulo de envio de mensagens para canais sendmessage.py
+- `SLACK_BOT_TOKEN`=seu_token_de_bot_slack_aqui
+- `SLACK_SIGNING_SECRET`=seu_secreto_de_assinatura_slack_aqui
+- `OPENAI_API_KEY`=sua_chave_api_openai_aqui
+- `OPENAI_ASSISTANT_ID`=id_do_seu_assistente_openai_aqui
+- `SLACK_CHANNEL_WEBHOOKURL`=(opcional) para utilizar o módulo de envio de mensagens para canais sendmessage.py
 
 4. Instale as dependências executando `pip install -r requirements.txt`.
 
@@ -87,4 +87,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request 
 ### Licença
 Open source
 
-Originalmente feito por Luiz Fialho
+*Originalmente programado por Luiz Filipe Fialho*
