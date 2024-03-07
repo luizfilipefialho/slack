@@ -51,7 +51,7 @@ def handle_message(message, say):
     run = client.beta.threads.runs.create(
         thread_id=thread.id,
         assistant_id=assistant_id,
-        instructions="Você é um profissional de RH da Dattos e tem acesso aos arquivos para informar as pessoas sobre as duvidas acerca de políticas de rh.",  # Add your own instructions if needed
+        #instructions="",  # Add your own instructions if needed
     )
     
     # Wait for the run to complete (simple polling mechanism)
